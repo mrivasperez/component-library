@@ -1,25 +1,5 @@
-import Button from "./components/Button";
-
 function App() {
-  return (
-    <div>
-      <Button>Hello!</Button>
-      <Button variant="danger">Hello!</Button>
-      <Button variant="secondary">Hello!</Button>
-      <Button variant="success">Hello!</Button>
-      <Button variant="warning">Hello!</Button>
-      <Button rounded>Hello!</Button>
-      <Button variant="danger" rounded>Hello!</Button>
-      <Button variant="secondary" rounded>Hello!</Button>
-      <Button variant="success" rounded>Hello!</Button>
-      <Button variant="warning" rounded>Hello!</Button>
-      <Button outline>Hello!</Button>
-      <Button variant="danger" outline onClick={() => alert('danger')}>Hello!</Button>
-      <Button variant="secondary" outline>Hello!</Button>
-      <Button variant="success" outline>Hello!</Button>
-      <Button variant="warning" outline>Hello!</Button>
-    </div>
-  );
+  return <h1></h1>;
 }
 
 export default App;
