@@ -13,7 +13,6 @@ const Button = ({
   rounded,
   outline
 }: PropsWithChildren<ButtonProps>) => {
-  // TODO create classNames
   const buttonClassNames = classNames("px-4 py-1.5 border", {
     "text-white": variant !== "secondary" && variant !== "warning",
     "bg-red-600 border-red-600": variant === "danger",
@@ -25,10 +24,11 @@ const Button = ({
     "rounded-full": rounded,
     "bg-white": outline,
     "text-red-800": outline && variant === "danger",
-    "text-blue-700": outline && variant === "primary" || outline && variant === undefined,
+    "text-blue-700":
+      (outline && variant === "primary") || (outline && variant === undefined),
     "text-gray-800": outline && variant === "secondary",
     "text-green-800": outline && variant === "success",
-    "text-yellow-800": outline && variant === "warning",
+    "text-yellow-800": outline && variant === "warning"
   });
 
   return (
