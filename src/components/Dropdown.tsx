@@ -16,10 +16,9 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
 
   useEffect(() => {
     const handler = (event: MouseEvent) => {
-      if (dropdownRef.current) {
-        if (!dropdownRef.current.contains(event.target as Node)) {
-          return setIsOpen(false);
-        }
+      if (!dropdownRef.current) return;
+      if (!dropdownRef.current.contains(event.target as Node)) {
+        return setIsOpen(false);
       }
     };
     document.addEventListener("click", handler, true);
