@@ -12,16 +12,20 @@ const Accordion = ({ items }: AccordionProps) => {
   >();
 
   const handleClickItem = (clickedItemIndex: number) => {
-    if (clickedItemIndex === expandedItemIndex) return setExpandedItemIndex(undefined);
+    if (clickedItemIndex === expandedItemIndex)
+      return setExpandedItemIndex(undefined);
     else return setExpandedItemIndex(clickedItemIndex);
   };
 
   const renderedItems = items.map((item, index) => {
     const isExpanded = index === expandedItemIndex;
-    const icon = <span>{isExpanded ? '⯅' : "⯆" }</span>
+    const icon = <span>{isExpanded ? "⯅" : "⯆"}</span>;
     return (
       <div key={item.id}>
-        <div onClick={() => handleClickItem(index)}>{icon}{item.label}</div>
+        <div onClick={() => handleClickItem(index)}>
+          {icon}
+          {item.label}
+        </div>
         {isExpanded && <div>{item.content}</div>}
       </div>
     );
