@@ -1,7 +1,8 @@
+import classNames from "classnames";
 import React, { PropsWithChildren } from "react";
 
 type ButtonProps = {
-  variant?: string;
+  variant?: "danger" | "primary" | "secondary" | "success" | "warning";
   rounded?: true;
   outline?: true;
 };
@@ -12,12 +13,20 @@ const Button = ({
   rounded,
   outline
 }: PropsWithChildren<ButtonProps>) => {
+  // TODO create classNames
+  const buttonClassNames = classNames("px-3 py-1.5 border", {
+    "text-white": variant !== "secondary" && variant !== "warning",
+    "bg-red-600 border-red-600": variant === "danger",
+    "bg-blue-600 border-blue-600":
+      variant === "primary" || variant === undefined,
+    "bg-gray-100 border-gray-200": variant === "secondary",
+    "bg-green-600 border-green-600": variant === "success",
+    "bg-yellow-400 border-yellow-400": variant === "warning"
+  });
+
   return (
     <div>
-      <button
-        className="px-3 py-1.5 border border-blue-600 bg-blue-500 text-white 
-  "
-      >
+      <button className={buttonClassNames}>
         {children ? children : "Okay"}
       </button>
     </div>
