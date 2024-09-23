@@ -4,11 +4,11 @@ export type DropdownOptionList = DropdownOption[];
 
 interface DropdownProps {
   options: DropdownOptionList;
-  selection: null | DropdownOption;
-  onSelect: (option: DropdownOption | null) => void;
+  value: null | DropdownOption;
+  onChange: (option: DropdownOption | null) => void;
 }
 
-const Dropdown = ({ options, selection, onSelect }: DropdownProps) => {
+const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpenDropdown = () => {
@@ -17,10 +17,10 @@ const Dropdown = ({ options, selection, onSelect }: DropdownProps) => {
 
   const handleSelectOption = (option: { label: string; value: string }) => {
     handleOpenDropdown();
-    onSelect(option);
+    onChange(option);
   };
 
-  const handleClearSelection = () => onSelect(null);
+  const handleClearSelection = () => onChange(null);
 
   const renderedOptions = options.map((option) => {
     return (
@@ -33,11 +33,11 @@ const Dropdown = ({ options, selection, onSelect }: DropdownProps) => {
   return (
     <div>
       <div onClick={handleOpenDropdown}>
-        {selection ? selection.label : "Select..."}
+        {value ? value.label : "Select..."}
       </div>
       {isOpen && (
         <div>
-          {selection && <div onClick={handleClearSelection}>Clear</div>}
+          {value && <div onClick={handleClearSelection}>Clear</div>}
           {renderedOptions}
         </div>
       )}
