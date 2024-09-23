@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Panel from "./Panel";
 
 export type DropdownOption = { label: string; value: string };
 export type DropdownOptionList = DropdownOption[];
@@ -35,17 +36,17 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
 
   return (
     <div className="w-48 relative">
-      <div
-        className="flex justify-between items-center cursor-pointer border rounded p-2 shadow bg-white w-full"
+      <Panel
+        className="flex justify-between items-center cursor-pointer  bg-white w-full"
         onClick={handleClick}
       >
         {value ? value.label : "Select..."}
         <span>⯆</span>
-      </div>
+      </Panel>
       {isOpen && (
-        <div className="absolute top-full border rounded p-2 bg-white shadow w-full">
+        <Panel className="absolute top-full bg-white  w-full">
           {renderedOptions}
-        </div>
+        </Panel>
       )}
     </div>
   );
