@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Panel from "./Panel";
 
 export type DropdownOption = { label: string; value: string };
@@ -12,6 +12,22 @@ interface DropdownProps {
 
 const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handler = (event: MouseEvent) => {
+      if (dropdownRef.current) {
+        if (!dropdownRef.current.contains(event.target as Node)) {
+          return setIsOpen(false);
+        }
+      }
+    };
+    document.addEventListener("click", handler, true);
+    // cleanup
+    return () => {
+      document.removeEventListener("click", handler);
+    };
+  }, []);
 
   const handleClick = () => {
     setIsOpen(!isOpen);
@@ -35,7 +51,7 @@ const Dropdown = ({ options, value, onChange }: DropdownProps) => {
   });
 
   return (
-    <div className="w-48 relative">
+    <div className="w-48 relative" ref={dropdownRef}>
       <Panel
         className="flex justify-between items-center cursor-pointer  bg-white w-full"
         onClick={handleClick}
