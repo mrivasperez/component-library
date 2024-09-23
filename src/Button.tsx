@@ -1,17 +1,18 @@
 import classNames from "classnames";
 import React, { PropsWithChildren } from "react";
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "danger" | "primary" | "secondary" | "success" | "warning";
   rounded?: true;
   outline?: true;
-};
+}
 
 const Button = ({
   children,
   variant,
   rounded,
-  outline
+  outline,
+  ...rest
 }: PropsWithChildren<ButtonProps>) => {
   const buttonClassNames = classNames("px-4 py-1.5 border", {
     "text-white": variant !== "secondary" && variant !== "warning",
@@ -32,11 +33,9 @@ const Button = ({
   });
 
   return (
-    <div>
-      <button className={buttonClassNames}>
-        {children ? children : "Okay"}
-      </button>
-    </div>
+    <button {...rest} className={buttonClassNames}>
+      {children ? children : "Okay"}
+    </button>
   );
 };
 

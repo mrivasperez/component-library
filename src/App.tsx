@@ -14,7 +14,7 @@ function App() {
       <Button variant="success" rounded>Hello!</Button>
       <Button variant="warning" rounded>Hello!</Button>
       <Button outline>Hello!</Button>
-      <Button variant="danger" outline>Hello!</Button>
+      <Button variant="danger" outline onClick={() => alert('danger')}>Hello!</Button>
       <Button variant="secondary" outline>Hello!</Button>
       <Button variant="success" outline>Hello!</Button>
       <Button variant="warning" outline>Hello!</Button>
