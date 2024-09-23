@@ -19,19 +19,22 @@ const Accordion = ({ items }: AccordionProps) => {
 
   const renderedItems = items.map((item, index) => {
     const isExpanded = index === expandedItemIndex;
-    const icon = <span>{isExpanded ? "⯅" : "⯆"}</span>;
+    const icon = <span className="pe-2 text-xl">{isExpanded ? "⯅" : "⯆"}</span>;
     return (
       <div key={item.id}>
-        <div onClick={() => handleClickItem(index)}>
+        <div
+          onClick={() => handleClickItem(index)}
+          className="flex p-3 bg-gray-50 border-b items-center cursor-pointer"
+        >
           {icon}
           {item.label}
         </div>
-        {isExpanded && <div>{item.content}</div>}
+        {isExpanded && <div className="border-b p-5">{item.content}</div>}
       </div>
     );
   });
 
-  return <div>{renderedItems}</div>;
+  return <div className="border-x border-t rounded">{renderedItems}</div>;
 };
 
 export default Accordion;
