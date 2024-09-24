@@ -11,11 +11,18 @@ const Link = ({ to, children }: PropsWithChildren<LinkProps>) => {
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
   ) => {
+    if (event.metaKey || event.ctrlKey) {
+      return;
+    }
     event.preventDefault();
     navigate(to);
   };
 
-  return <a onClick={handleClick}>{children}</a>;
+  return (
+    <a onClick={handleClick} href={to}>
+      {children}
+    </a>
+  );
 };
 
 export default Link;
