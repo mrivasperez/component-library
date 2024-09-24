@@ -1,13 +1,13 @@
-import React, { PropsWithChildren, useContext } from "react";
-import NavigationContext from "../context/navigation";
+import React, { PropsWithChildren } from "react";
 import classNames from "classnames";
+import useNavigation from "../hooks/useNavigation";
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   to: string;
 }
 
 const Link = ({ to, children }: PropsWithChildren<LinkProps>) => {
-  const { navigate } = useContext(NavigationContext);
+  const { navigate } = useNavigation();
 
   const linkClassNames = classNames("text-blue-600");
 

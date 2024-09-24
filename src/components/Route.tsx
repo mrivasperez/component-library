@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import NavigationContext from "../context/navigation";
+import React from "react";
+import useNavigation from "../hooks/useNavigation";
 
 interface RouteProps {
   path: string;
@@ -7,7 +7,7 @@ interface RouteProps {
 }
 
 const Route = ({ path, children }: RouteProps) => {
-  const { currentPath } = useContext(NavigationContext);
+  const { currentPath } = useNavigation();
 
   if (path === currentPath) {
     return children;
