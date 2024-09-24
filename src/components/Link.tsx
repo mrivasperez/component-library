@@ -4,12 +4,13 @@ import useNavigation from "../hooks/useNavigation";
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   to: string;
+  className?: string;
 }
 
-const Link = ({ to, children }: PropsWithChildren<LinkProps>) => {
+const Link = ({ to, children, className }: PropsWithChildren<LinkProps>) => {
   const { navigate } = useNavigation();
 
-  const linkClassNames = classNames("text-blue-600");
+  const linkClassNames = classNames("text-blue-600", className);
 
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
