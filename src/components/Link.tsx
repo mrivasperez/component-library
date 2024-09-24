@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useContext } from "react";
 import NavigationContext from "../context/navigation";
+import classNames from "classnames";
 
 interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
   to: string;
@@ -7,6 +8,8 @@ interface LinkProps extends React.HTMLAttributes<HTMLAnchorElement> {
 
 const Link = ({ to, children }: PropsWithChildren<LinkProps>) => {
   const { navigate } = useContext(NavigationContext);
+
+  const linkClassNames = classNames("text-blue-600");
 
   const handleClick = (
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -19,7 +22,7 @@ const Link = ({ to, children }: PropsWithChildren<LinkProps>) => {
   };
 
   return (
-    <a onClick={handleClick} href={to}>
+    <a onClick={handleClick} href={to} className={linkClassNames}>
       {children}
     </a>
   );
