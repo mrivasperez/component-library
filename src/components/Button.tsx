@@ -15,7 +15,7 @@ const Button = ({
   ...rest
 }: PropsWithChildren<ButtonProps>) => {
   const buttonClassNames = classNames("px-4 py-1.5 border block", {
-    "text-white": variant !== "secondary" && variant !== "warning",
+    "text-white": variant !== "secondary" && variant !== "warning" && !outline,
     "bg-red-600 border-red-600": variant === "danger",
     "bg-blue-600 border-blue-600":
       variant === "primary" || variant === undefined,
