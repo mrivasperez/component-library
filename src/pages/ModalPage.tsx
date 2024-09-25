@@ -5,16 +5,26 @@ import Modal from "../components/Modal";
 const ModalPage = () => {
   const [showModal, setShowModal] = useState(false);
 
-  const handleClick = () => {
-    setShowModal(true);
-  };
+  const handleShowModal = () => setShowModal(!showModal);
 
   return (
     <div>
-      <Button variant="primary" rounded onClick={handleClick}>
+      <Button variant="primary" rounded onClick={handleShowModal}>
         Open Modal
       </Button>
-      {showModal && <Modal />}
+
+      {showModal && (
+        <Modal onClose={handleShowModal}>
+          <p className="mb-4">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            velit excepturi accusamus illo soluta fuga, delectus, ratione id vel
+            quo reiciendis eligendi necessitatibus, omnis recusandae nulla.
+          </p>
+          <Button onClick={handleShowModal} rounded>
+            Close Modal
+          </Button>
+        </Modal>
+      )}
     </div>
   );
 };
