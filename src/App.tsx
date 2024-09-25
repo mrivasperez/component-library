@@ -1,9 +1,9 @@
 import Route from "./components/Route";
 import Sidebar from "./components/Sidebar";
-import AccordionPage from "./pages/AccordionPage";
-import ButtonPage from "./pages/ButtonPage";
-import DropdownPage from "./pages/DropdownPage";
-import ModalPage from "./pages/ModalPage";
+import AccordionPage from "./features/Accordion/AccordionPage";
+import ButtonPage from "./features/Button/ButtonPage";
+import DropdownPage from "./features/Dropdown/DropdownPage";
+import ModalPage from "./features/Modal/ModalPage";
 
 function App() {
   return (

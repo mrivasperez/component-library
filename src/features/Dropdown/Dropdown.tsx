@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import Panel from "./Panel";
+import Panel from "../../components/Panel";
 
 export type DropdownOption = { label: string; value: string };
 export type DropdownOptionList = DropdownOption[];

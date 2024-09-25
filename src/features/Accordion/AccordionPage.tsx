@@ -1,4 +1,4 @@
-import Accordion, { AccordionItems } from "../components/Accordion";
+import Accordion, { AccordionItems } from "./Accordion";
 
 const AccordionPage = () => {
   const accordionItems: AccordionItems = [
