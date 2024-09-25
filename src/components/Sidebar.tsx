@@ -16,6 +16,10 @@ const Sidebar = () => {
     {
       label: "Dropdown",
       path: "/dropdown"
+    },
+    {
+      label: "Modal",
+      path: "/modal"
     }
   ];
 
